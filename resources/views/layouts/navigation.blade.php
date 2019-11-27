@@ -3,7 +3,7 @@
 
 <?php if(!Auth::check()) : ?>
   <div class="row header-bar z-depth-1 secondary-text-color align-items-center" style="text-align: center;">
-    <div class="col">Quality Management Office</div>
+    <div class="col">Library Management System</div>
   </div>
 <?php else : ?>
   <div class="row header-bar z-depth-1 secondary-text-color align-items-center">
