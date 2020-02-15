@@ -71,7 +71,8 @@
           @endif
           
         </input><br>
-          <div class="card search-field">
+        <button type="submit" id="search" class="btn btn-primary active">Search</button>
+          <!-- <div class="card search-field">
             <form>
               <div class="form-group">
                 <label for="inputType">Type</label>
@@ -96,7 +97,7 @@
               </div>
               <button type="submit" id="search" class="btn btn-primary active">Search</button>
             </form>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col results">

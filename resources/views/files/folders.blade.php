@@ -66,20 +66,20 @@
 
 @section('main-content')
 
-	<h2 class="title">Folders</h2>
+	<h2 class="title">COLLEGES</h2>
 
 	<div class="container">
 
-		@foreach($folders as $folder)
+		@foreach($colleges as $college)
 			<div class="folder">
 				<div style="text-align:center">
-					<a href="/files/folders/view/{{$folder->id}}" class="btn-control-primary">OPEN</a>
+					<a href="/files/folders/view/{{ strtolower($college->college) }}" class="btn-control-primary">OPEN</a>
 				</div>
 				<br>
 				<div class="edit-form">
-					<!-- <input type="text" value="{{ strtoupper($folder->name) }}"> -->
+					<!-- <input type="text" value=""> -->
 				</div>
-				<p><strong>{{ strtoupper($folder->name) }}</strong></p>
+				<p><strong>{{ strtoupper($college->college) }}</strong></p>
 				<p>
 					<i class="material-icons folder-icon">folder</i>
 				</p>

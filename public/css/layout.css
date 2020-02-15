@@ -1,3 +1,7 @@
+html, body {
+  height: -webkit-fill-available;
+}
+
 .header-bar {
   background-color: #af2431;
   height: 60px;

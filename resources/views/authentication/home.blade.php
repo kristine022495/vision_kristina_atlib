@@ -72,7 +72,7 @@
 			<img src="https://i1.wp.com/umap.org/wp-content/uploads/2017/06/UM_Logo2.jpg">	
 		</div>
 		
-		<h2 class="title">Welcome to <br> Quality Management System <br>for File Archives</h2>
+		<h2 class="title">Welcome to <br> Library Management System</h2>
 		<br>
 		<div class="search">
 			<form method="post" action="/files/wildsearch">

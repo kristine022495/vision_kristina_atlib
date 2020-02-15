@@ -58,12 +58,12 @@
 
 @section('main-content')
 
-	<h2 class="title">Folders/{{ strtoupper($folder_name) }}</h2>
+	<h2 class="title">COLLEGE: {{ strtoupper($folder_id) }}</h2>
 
 	<div class="container">
-	@foreach($sub_folders as $folder)
+	@foreach($programs as $program)
 		<div class="folder">
-			<h4><a href="/files/view/{{ $folder->id }}">{{ ucwords($folder->name) }}</a></h4>
+			<h4><a href="/files/program/list/{{ strtolower($folder_id) }}/{{ strtolower($program->program) }}">{{ ucwords($program->program) }}</a></h4>
 		</div>
 	@endforeach
 	</div>

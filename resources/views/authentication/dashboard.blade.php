@@ -31,9 +31,11 @@
       <li class="list-group-item"><h5>File Manager</h5></li>
       <div style="padding-left:15px">
         <a href="/dashboard" class="list-group-item"><i class="material-icons">home</i>Dashboard</a>
-        <a href="/files/folders" class="list-group-item"><i class="material-icons">folder_open</i>Folders</a>
+        <a href="/files/folders" class="list-group-item"><i class="material-icons">folder_open</i>Browse</a>
         <a href="/files/search" class="list-group-item"><i class="material-icons">search</i>Search</a>
         <a href="/files/upload" class="list-group-item"><i class="material-icons">cloud_upload</i>Upload</a>
+        <a href="/files/generate/token" class="list-group-item"><i class="material-icons">vpn_key</i>Generate Token</a>
+        <a href="/files/view/tokens/all" class="list-group-item"><i class="material-icons">storage</i>All Tokens</a>
       </div>
     </ul>
     <!-- Show Accounts Manager if user is an admin -->

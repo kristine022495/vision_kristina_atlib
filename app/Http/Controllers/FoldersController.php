@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
+use DB;
+use Log;
 
 
 class FoldersController extends Controller
@@ -11,21 +13,58 @@ class FoldersController extends Controller
     
 	public function getFoldersList() {
 
-		$db_folders = new \App\Folder;
-		$folders = $db_folders->where('archived', 0)->get();
+		// $db_folders = new \App\Folder;
+		// $folders = $db_folders->where('archived', 0)->get();
 
-		return view('files.folders', compact('folders'));
+		// $query = 'SELECT DISTINCT COLLEGE FROM kristine.file_sets';
+		$colleges = DB::table('kristine.file_sets')
+							->select('college')
+							->distinct()
+							->get();
+
+		Log::info(print_r($colleges, true));
+
+		return view('files.folders', compact('colleges'));
+
+	}
+
+	public function getFilesList($college, $program) {
+
+		// $db_school_year = DB::table('kristine.file_sets')
+		// 					->select('school_year')
+		// 					->distinct()
+		// 					->where('college', $college)
+		// 					->where('program', $program)
+		// 					->get();
+
+		// $school_years = array();
+
+		$file_sets = DB::table('kristine.file_sets')
+							->select('*')
+							->where('college', $college)
+							->where('program', $program)
+							->get();
+
+		return view('files.files_list', compact('program', 'college', 'file_sets'));
 
 	}
 
 	public function getSubFolders($folder_id) {
 
-		$fileset_db = new \App\FileSet;
-		$folder_db = new \App\Folder;
-		$folder_name = $folder_db->where('id', $folder_id)->get()[0]->name;
-		$sub_folders = $fileset_db->where('folder_id', $folder_id)->get();
+		// $fileset_db = new \App\FileSet;
+		// $folder_db = new \App\Folder;
+		// $folder_name = $folder_db->where('id', $folder_id)->get()[0]->name;
+		// $sub_folders = $fileset_db->where('folder_id', $folder_id)->get();
 
-		return view('files.sub_folders', compact('sub_folders', 'folder_name'));
+		$programs = DB::table('kristine.file_sets')
+							->select('program')
+							->distinct()
+							->where('college', $folder_id)
+							->get();
+
+		Log::info(print_r($programs, true));
+
+		return view('files.sub_folders', compact('folder_id', 'programs'));
 
 	}
 
