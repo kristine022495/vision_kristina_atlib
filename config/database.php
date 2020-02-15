@@ -1,11 +1,11 @@
 <?php
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
+// $host = $url["host"];
+// $username = $url["user"];
+// $password = $url["pass"];
+// $database = substr($url["path"], 1);
 
 return [
 
@@ -49,9 +49,13 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'port' => env('DB_PORT', '3306'),
+            // 'host' => '127.0.0.1',
             'host' => $host,
+            // 'database' => 'kristine',
             'database' => $database,
+            // 'username' => 'root',
             'username' => $username,
+            // 'password' => 'AlphaBeta01!',
             'password' => $password,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',

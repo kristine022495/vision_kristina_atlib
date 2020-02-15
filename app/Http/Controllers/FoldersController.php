@@ -16,8 +16,8 @@ class FoldersController extends Controller
 		// $db_folders = new \App\Folder;
 		// $folders = $db_folders->where('archived', 0)->get();
 
-		// $query = 'SELECT DISTINCT COLLEGE FROM kristine.file_sets';
-		$colleges = DB::table('kristine.file_sets')
+		// $query = 'SELECT DISTINCT COLLEGE FROM file_sets';
+		$colleges = DB::table('file_sets')
 							->select('college')
 							->distinct()
 							->get();
@@ -30,7 +30,7 @@ class FoldersController extends Controller
 
 	public function getFilesList($college, $program) {
 
-		// $db_school_year = DB::table('kristine.file_sets')
+		// $db_school_year = DB::table('file_sets')
 		// 					->select('school_year')
 		// 					->distinct()
 		// 					->where('college', $college)
@@ -39,7 +39,7 @@ class FoldersController extends Controller
 
 		// $school_years = array();
 
-		$file_sets = DB::table('kristine.file_sets')
+		$file_sets = DB::table('file_sets')
 							->select('*')
 							->where('college', $college)
 							->where('program', $program)
@@ -56,7 +56,7 @@ class FoldersController extends Controller
 		// $folder_name = $folder_db->where('id', $folder_id)->get()[0]->name;
 		// $sub_folders = $fileset_db->where('folder_id', $folder_id)->get();
 
-		$programs = DB::table('kristine.file_sets')
+		$programs = DB::table('file_sets')
 							->select('program')
 							->distinct()
 							->where('college', $folder_id)

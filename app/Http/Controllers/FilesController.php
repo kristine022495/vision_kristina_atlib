@@ -184,7 +184,7 @@ class FilesController extends Controller
 
     $response = array();
 
-    $db_file_set = DB::table('kristine.file_sets')
+    $db_file_set = DB::table('file_sets')
                         ->select('*')
                         ->where('id', $request->thesis_id)
                         ->get();
@@ -247,7 +247,7 @@ class FilesController extends Controller
 
   public function viewAllTokens() {
 
-    $tokens = DB::table('kristine.thesis_tokens')
+    $tokens = DB::table('thesis_tokens')
                       ->select('*')
                       ->get();
 
@@ -257,7 +257,7 @@ class FilesController extends Controller
 
   public function retrievePublicThesis(Request $request) {
 
-    $db_thesis = DB::table('kristine.thesis_tokens')
+    $db_thesis = DB::table('thesis_tokens')
                     ->select('*')
                     ->where('token', $request->token)
                     ->where('requesting_id', $request->requesting_id)

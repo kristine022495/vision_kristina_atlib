@@ -10,7 +10,7 @@ class PublicAccessController extends Controller
     
     public function browse() {
 
-        $colleges = DB::table('kristine.file_sets')
+        $colleges = DB::table('file_sets')
                         ->select('college')
                         ->distinct()
                         ->get();
@@ -21,7 +21,7 @@ class PublicAccessController extends Controller
 
     public function browsePrograms($folder_id) {
 
-        $programs = DB::table('kristine.file_sets')
+        $programs = DB::table('file_sets')
                         ->select('program')
                         ->distinct()
                         ->where('college', $folder_id)
@@ -33,7 +33,7 @@ class PublicAccessController extends Controller
 
     public function browseThesisFiles($college, $program) {
 
-        $file_sets = DB::table('kristine.file_sets')
+        $file_sets = DB::table('file_sets')
 							->select('*')
 							->where('college', $college)
 							->where('program', $program)
