@@ -53,8 +53,10 @@ Route::post('/files/generate/token', 'FilesController@generateToken');
 
 // PUBLIC - GET
 Route::get('/thesis/', 'FilesController@getPublicThesis');
+Route::get('/thesis/search', 'PublicAccessController@publicSearch');
 Route::post('/thesis/', 'FilesController@retrievePublicThesis');
 Route::get('/thesis/retrieve/{fileset}', 'FilesController@retrievePublicThesisApproved');
+Route::get('/thesis/retrieve-restricted/{fileset}', 'FilesController@retrieveRestrictedPublicThesisApproved');
 
 // PUBLIC - BROWSE
 Route::get('thesis/browse', 'PublicAccessController@browse');

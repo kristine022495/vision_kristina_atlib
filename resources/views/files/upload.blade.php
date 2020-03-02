@@ -190,7 +190,10 @@
 
           <h6 class="card-subtitle mb-2 text-muted">Author/s</h6>
           <small>1 author per line</small>
-          <textarea name="authors" id="authors" cols="30" rows="10"></textarea>
+          <textarea name="authors" id="authors" cols="35" rows="5"></textarea>
+
+          <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+          <textarea name="description" id="description" cols="35" rows="5"></textarea>
           
           <button id="upload" class="card-link btn btn-primary active" style="margin-left: 8px;">Begin Upload</button>
           <!-- Compressed Variables -->
@@ -345,6 +348,7 @@
       'college':       $('input[name=college]').val(),
       'program':       $('input[name=program]').val(),
       'authors':       $('textarea[name=authors]').val(),
+      'description':   $('textarea[name=description]').val(),
       'files':          []
     };
 

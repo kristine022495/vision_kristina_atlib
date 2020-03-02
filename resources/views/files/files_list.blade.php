@@ -40,6 +40,7 @@
           <th scope="col" onclick="sortTable(0)">Title</th>
           <th scope="col" onclick="sortTable(1)">School Year</th>
           <th scope="col" onclick="sortTable(2)">Authors</th>
+          <th scope="col" onclick="sortTable(3)">Number of Pages</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -49,6 +50,7 @@
             <td>{{ $file_set->title }}</td>
             <td>{{ $file_set->school_year }}</td>
             <td>{{ $file_set->authors }}</td>
+            <td>{{ $file_set->number_of_pages }}</td>
             <td>
               <a href="/files/view/{{ $file_set->id }}">View</a>
             </td>

@@ -103,7 +103,7 @@
                 <th scope="col" onclick="sortTable(0)">Title</th>
                 <th scope="col" onclick="sortTable(1)">School Year</th>
                 <th scope="col" onclick="sortTable(2)">Authors</th>
-                <th scope="col">Document ID</th>
+                <th scope="col">Call ID</th>
                 </tr>
             </thead>
             <tbody>
@@ -113,7 +113,7 @@
                     <td>{{ $file_set->school_year }}</td>
                     <td>{{ $file_set->authors }}</td>
                     <td>
-                    <a href="/">{{ $file_set->id }}</a>
+                    <a href="/thesis/retrieve-restricted/{{ $file_set->id }}">{{ $file_set->id }} - Lookup Doc</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

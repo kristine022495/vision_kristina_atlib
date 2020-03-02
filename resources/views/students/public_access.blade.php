@@ -54,6 +54,7 @@
     <h1>University of Mindanao</h1>
     <h2>Thesis Bank</h2>
     <a href="/thesis/browse" class="btn active">Browse</a>
+    <a href="/thesis/search" class="btn active">Search</a>
 
     <div class="form">
       <form method="POST" action="/thesis">

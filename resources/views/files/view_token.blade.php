@@ -39,7 +39,7 @@
       <thead>
         <tr>
           <th scope="col">Token ID</th>
-          <th scope="col">Thesis ID</th>
+          <th scope="col">Call ID</th>
           <th scope="col">Requesting ID</th>
           <th scope="col">Date Requested</th>
           <th scope="col">Purpose</th>

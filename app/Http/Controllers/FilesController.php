@@ -119,7 +119,9 @@ class FilesController extends Controller
         $fileSet->college =       $request->college;
         $fileSet->program =       $request->program;
         $fileSet->authors =       $request->authors;
+        $fileSet->description =   $request->description;
         $fileSet->title =         $request->title;
+        $fileSet->number_of_pages = count($request['files']);
         $fileSet->save();
 
         // save each file from the set
@@ -301,6 +303,12 @@ class FilesController extends Controller
   public function retrievePublicThesisApproved(FileSet $fileset) {
 
     return view('students.retrieve_thesis', compact('fileset'));
+
+  }
+
+  public function retrieveRestrictedPublicThesisApproved(FileSet $fileset) {
+
+    return view('students.retrieve_thesis_restricted', compact('fileset'));
 
   }
 

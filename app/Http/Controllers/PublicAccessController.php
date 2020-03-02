@@ -44,4 +44,10 @@ class PublicAccessController extends Controller
 
     }
 
+    public function publicSearch(Request $request) {
+        
+        return view('students.search');
+
+    }
+
 }

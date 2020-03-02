@@ -44,7 +44,7 @@
             <h4>Expiration Date:</h4>
             <p class="data" id="expiration_date_string"></p>
 
-            <h4>Thesis ID:</h4>
+            <h4>Call ID:</h4>
             <p class="data">{{ $response->thesis_id }}</p>
 
             <h4>Requesting ID:</h4>
@@ -54,7 +54,7 @@
         <form action="/files/generate/token" class="token-form" method="POST">
             @csrf
             <div class="form-group">
-                <label for="username">Thesis ID</label>
+                <label for="username">Call ID</label>
                 <input type="text" class="form-control" id="thesis_id" name="thesis_id" required>
             </div>
             <div class="form-group">
@@ -69,7 +69,12 @@
                 <label for="username">Requesting ID</label>
                 <input type="text" class="form-control" id="requesting_id" name="requesting_id" required>
             </div>
-            <input type="text" id="token" name="token" hidden>
+            <div class="form-group">
+                <label for="username" style="text-align: left;">Token ID <br>
+                <small>A value has been set automatically. <br>
+                        But can be edited manually.</small></label>
+                <input type="text" class="form-control" id="token" name="token" style="margin-top:20px;" required>
+            </div>
             <input type="submit" class="btn btn-primary active" name="" id="" value="generate">
         </form>
         <div class="thesis-checker">

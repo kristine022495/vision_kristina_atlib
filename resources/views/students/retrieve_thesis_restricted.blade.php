@@ -64,7 +64,27 @@
     .circle i {
       font-size: 63px;
     }
+
+    .sidenav, .header-bar {
+      display: none;
+    }
+
+    .header-visible {
+      display: flex;
+    }
+
+    #files {
+      display: none;
+    }
+
+    #description {
+      margin-top: 120px;
+    }
   </style>
+
+  <div class="row header-bar header-visible z-depth-1 secondary-text-color align-items-center" style="text-align: left;">
+    <div class="col">Library Management System</div>
+  </div>
 
 @endsection
 
@@ -75,7 +95,7 @@
       <div class="col-4 details">
         <h1>{{ $fileset->title }}</h1><br>
 
-        <a href="/files/generate/token/{{ $fileset->id }}" class="btn btn-primary active">Generate Token</a>
+        <!-- <a href="/files/generate/token/{{ $fileset->id }}" class="btn btn-primary active">Generate Token</a> -->
         <br><br>
 
         <h4>Call ID</h4>
@@ -112,10 +132,15 @@
           <h4>Department</h4>
           <h6>{{ $fileset->department }}</h6><br>
         <?php endif; ?>
-        <h4>Uploader</h4>
-        <h6>{{ $fileset->uploader }}</h6><br>
+        
       </div>
-      <div class="col-8" id="files">
+
+      <div class="col-5" id="description">
+          <h2>Description</h2>
+          <p>{{ $fileset->description }}</p>
+      </div>
+
+      <div class="col-5" id="files">
         <div class="row preview">
           <!-- <div class="col-4">
             <div class="icon">1</div>
@@ -168,8 +193,8 @@
     "<div class=\"row preview\">"+
     "  <div class=\"col-4\">"+
     "    <div class=\"icon\">" + index + "</div>"+
-    "    <a href=\"" + image.src + "\" download=\"download\" class=\"btn btn-primary active\">Download</a><br>"+
-    "    <button class=\"btn btn-primary\" onclick=\"print(" + file.id + ")\">Print</button>"+
+    // "    <a href=\"" + image.src + "\" download=\"download\" class=\"btn btn-primary active\">Download</a><br>"+
+    // "    <button class=\"btn btn-primary\" onclick=\"print(" + file.id + ")\">Print</button>"+
     "    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\".preview-image-" + index + "\">Preview</button>"+
     "    <div class=\"modal fade preview-image-" + index + "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">"+
     "      <div class=\"modal-dialog modal-lg\">"+
