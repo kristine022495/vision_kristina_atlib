@@ -152,35 +152,37 @@
           </div> -->
         </div>
       </div>
-      <div class="col results">
+      <div class="col">
         <h3>Results</h3>
-        <!-- <div class="result">
-          <h5>Lorem Ipsum Dolor Sit Amet</h5>
-          <small>Type: <b>Calendar</b></small>
-          <small>School Year: <b>2018-2019</b></small><br>
-          <small>Associated ID: <b>391482</b></small>
-          <small>Department: <b>CCE</b></small><br>
-          <small>Uploader: <b>@administrator</b></small>
-          <br><br><button class="btn btn-primary active">View</button>
+        <div class="results">
+          <!-- <div class="result">
+            <h5>Lorem Ipsum Dolor Sit Amet</h5>
+            <small>Type: <b>Calendar</b></small>
+            <small>School Year: <b>2018-2019</b></small><br>
+            <small>Associated ID: <b>391482</b></small>
+            <small>Department: <b>CCE</b></small><br>
+            <small>Uploader: <b>@administrator</b></small>
+            <br><br><button class="btn btn-primary active">View</button>
+          </div>
+          <div class="result">
+            <h5>Lorem Ipsum Dolor Sit Amet</h5>
+            <small>Type: <b>Calendar</b></small>
+            <small>School Year: <b>2018-2019</b></small><br>
+            <small>Associated ID: <b>391482</b></small>
+            <small>Department: <b>CCE</b></small><br>
+            <small>Uploader: <b>@administrator</b></small>
+            <br><br><button class="btn btn-primary active">View</button>
+          </div>
+          <div class="result">
+            <h5>Lorem Ipsum Dolor Sit Amet</h5>
+            <small>Type: <b>Calendar</b></small>
+            <small>School Year: <b>2018-2019</b></small><br>
+            <small>Associated ID: <b>391482</b></small>
+            <small>Department: <b>CCE</b></small><br>
+            <small>Uploader: <b>@administrator</b></small>
+            <br><br><button class="btn btn-primary active">View</button>
+          </div> -->
         </div>
-        <div class="result">
-          <h5>Lorem Ipsum Dolor Sit Amet</h5>
-          <small>Type: <b>Calendar</b></small>
-          <small>School Year: <b>2018-2019</b></small><br>
-          <small>Associated ID: <b>391482</b></small>
-          <small>Department: <b>CCE</b></small><br>
-          <small>Uploader: <b>@administrator</b></small>
-          <br><br><button class="btn btn-primary active">View</button>
-        </div>
-        <div class="result">
-          <h5>Lorem Ipsum Dolor Sit Amet</h5>
-          <small>Type: <b>Calendar</b></small>
-          <small>School Year: <b>2018-2019</b></small><br>
-          <small>Associated ID: <b>391482</b></small>
-          <small>Department: <b>CCE</b></small><br>
-          <small>Uploader: <b>@administrator</b></small>
-          <br><br><button class="btn btn-primary active">View</button>
-        </div> -->
       </div>
     </div>
   </div>
@@ -234,6 +236,12 @@
   });
 
   function displayResults(results) {
+    $('.results').html('');
+
+    if (results.priority.length == 0) {
+      $('.results').html('No results found.');
+    }
+
     for (var i = 0; i < results.priority.length; i++) {
       $('.results').append(getResultHMTL(results.priority[i]));
     }
