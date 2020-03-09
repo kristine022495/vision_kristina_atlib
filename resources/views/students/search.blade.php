@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
   
-  <meta name="csrf-token" content="qpKiKymbIFWJUFElKPbJIw7MIoXAXKnW08a1XZBI">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <style>
 
@@ -62,25 +62,27 @@
       font-size: 63px;
     }
 
-    .main {
-        margin-top: 100px;
+    .sidenav {
+      display: none;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: center;
     }
   </style>
 
   <body>
 
       <!-- Navigation -->
-<!-- <div class="filler" style="height:60px"></div> -->
+<div class="filler" style="height:60px"></div>
 
   <div class="row header-bar z-depth-1 secondary-text-color align-items-center">
-    <div class="col">Library Management System</div>
-    <div class="col-5"></div>
-    <!-- <div class="col-2 text-right">Isaiah</div>
-    <a href="/logout" class="btn btn-primary" style="margin-top:6px;color:#ffcdd2">Logout</a> -->
+    <div class="col" style="text-align:center;">Library Management System</div>
   </div>
       
   <!-- Side navigation -->
-  <!-- <div class="sidenav">
+  <div class="sidenav">
     <div style="padding:20px;padding-bottom:0">
       <div class="circle"><i class="material-icons">account_circle</i></div>
       <div style="margin-left:10px">
@@ -98,9 +100,9 @@
         <a href="/files/generate/token" class="list-group-item"><i class="material-icons">vpn_key</i>Generate Token</a>
         <a href="/files/view/tokens/all" class="list-group-item"><i class="material-icons">storage</i>All Tokens</a>
       </div>
-    </ul> -->
+    </ul>
     <!-- Show Accounts Manager if user is an admin -->
-          <!-- <ul class="list-group bmd-list-group-sm" style="margin-top:10px;">
+          <ul class="list-group bmd-list-group-sm" style="margin-top:10px;">
         <li class="list-group-item"><h5>Admin Access</h5></li>
         <div style="padding-left:15px">
           <a href="/accounts/add" class="list-group-item"><i class="material-icons">group_add</i>Add user</a>
@@ -108,7 +110,7 @@
           <a href="/files/folders/manage" class="list-group-item"><i class="material-icons">folder_shared</i>Manage Folders</a>
         </div>
       </ul>
-      </div> -->
+      </div>
 
   <!-- Page content -->
   <div class="main">
@@ -250,8 +252,8 @@
     if (result.school_year != null) {
       $(output).append("<small>School Year: <b>" + result.school_year + "</b> </small><br>")
     }
-    if (result.id != null) {
-      $(output).append("<small>Call ID: <b>" + result.id + "</b> </small>")
+    if (result.associated_id != null) {
+      $(output).append("<small>Associated ID: <b>" + result.associated_id + "</b> </small>")
     }
     if (result.department != null) {
       $(output).append("<small>Department: <b>" + result.department + "</b> </small><br>")

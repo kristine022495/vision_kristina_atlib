@@ -111,6 +111,13 @@ class FilesController extends Controller
         // else: create a new one
         $fileSet = new \App\FileSet;
 
+        error_log($request->call_id);
+        error_log('checking...');
+
+        if ($request->call_id != 'auto') {
+          $fileSet->id = $request->call_id;
+        }
+
         error_log('SAVING FILESET INFORMATION');
         $fileSet->name =          $request->name;
         $fileSet->uploader =      $request->uploader;
@@ -177,36 +184,6 @@ class FilesController extends Controller
   public function getPublicThesis() {
 
     return view('students.public_access');
-
-  }
-
-  public function checkThesisRecord(Request $request) {
-
-    error_log('checking for id: ' . $request->thesis_id);
-
-    $response = array();
-
-    $db_file_set = DB::table('file_sets')
-                        ->select('*')
-                        ->where('id', $request->thesis_id)
-                        ->get();
-
-    if ($db_file_set->count() > 0) {
-      $file_set = $db_file_set[0];
-      $response = array(
-        'has_record' => 'true',
-        'title' => $file_set->title,
-        'college' => $file_set->college,
-        'program' => $file_set->program,
-        'school_year' => $file_set->school_year
-      );
-    } else {
-      $response = array(
-        'has_record' => 'false'
-      );
-    }
-
-    return response($response);
 
   }
 
@@ -309,6 +286,48 @@ class FilesController extends Controller
   public function retrieveRestrictedPublicThesisApproved(FileSet $fileset) {
 
     return view('students.retrieve_thesis_restricted', compact('fileset'));
+
+  }
+
+  public function checkThesisRecord(Request $request) {
+
+    error_log('checking for id: ' . $request->thesis_id);
+
+    $response = array();
+
+    $db_file_set = DB::table('file_sets')
+                        ->select('*')
+                        ->where('id', $request->thesis_id)
+                        ->get();
+
+    if ($db_file_set->count() > 0) {
+      $file_set = $db_file_set[0];
+      $response = array(
+        'has_record' => 'true',
+        'title' => $file_set->title,
+        'college' => $file_set->college,
+        'program' => $file_set->program,
+        'school_year' => $file_set->school_year
+      );
+    } else {
+      $response = array(
+        'has_record' => 'false'
+      );
+    }
+
+    return response($response);
+
+  }
+
+  public function updateDescription(Request $request) {
+
+    error_log($request->fileset_id);
+
+    $fileset = FileSet::find($request->fileset_id);
+    $fileset->description = $request->new_description;
+    $fileset->save();
+
+    return response(array('message' => 'success'));
 
   }
 

@@ -99,7 +99,11 @@
         <br><br>
 
         <h4>Call ID</h4>
-        <h6>{{ $fileset->id }}</h6><br>
+        <h6>{{ $fileset->id }}</h6>
+        <br>
+
+        <h4>Number of Pages</h4>
+        <h6>{{ $fileset->number_of_pages }}</h6><br>
 
         <?php if (isset($fileset->college)) : ?>
           <h4>College</h4>

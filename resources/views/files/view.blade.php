@@ -2,6 +2,8 @@
 
 @section('header')
 
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <style>
 
     h4 { color: #1c313a; }
@@ -75,9 +77,10 @@
       <div class="col-4 details">
         <h1>{{ $fileset->title }}</h1><br>
 
-        <a href="/files/generate/token/{{ $fileset->id }}" class="btn btn-primary active">Generate Token</a>
+        <a href="/files/generate/token/{{ $fileset->id }}" class="btn btn-primary active">Generate Token</a><br>
+        <small>({{ $fileset->number_of_pages }} Page/s)</small>
         <br><br>
-
+        
         <h4>Call ID</h4>
         <h6>{{ $fileset->id }}</h6><br>
 
@@ -114,6 +117,14 @@
         <?php endif; ?>
         <h4>Uploader</h4>
         <h6>{{ $fileset->uploader }}</h6><br>
+
+        <h4>Description</h4>
+        <textarea name="description" id="description" cols="30" rows="10">
+        {{ $fileset->description }}
+        </textarea>
+
+        <a class="btn btn-primary active" onclick="saveChanges()">Save Changes</a>
+
       </div>
       <div class="col-8" id="files">
         <div class="row preview">
@@ -185,6 +196,43 @@
     "</div>";
 
     $('#files').append(preview);
+  }
+
+  function saveChanges() {
+    var description = $('#description').val();
+    console.log($('#description').val());
+
+    $.snackbar({
+      content: "Saving Changes", // text of the snackbar
+      style: "toast", // add a custom class to your snackbar
+      timeout: 2000, // time in milliseconds after the snackbar autohides, 0 is disabled
+      htmlAllowed: true // allows HTML as content value
+    });
+
+    $.ajax({
+      type: 'POST',
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      url: '/update-description',
+      data: {
+          fileset_id: {!! $fileset->id !!},
+          new_description: $('#description').val()
+      },
+      success: function(data) {
+        $.snackbar({
+          content: "Changes Saved!", // text of the snackbar
+          style: "toast", // add a custom class to your snackbar
+          timeout: 3000, // time in milliseconds after the snackbar autohides, 0 is disabled
+          htmlAllowed: true // allows HTML as content value
+        });
+
+        console.log(data['message']);
+      },
+      error: function(jqXHR, status, error) {
+          console.log(status + '\n' + error);
+      }
+    });
+      
+
   }
 
   function print(image_id) {

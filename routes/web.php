@@ -65,3 +65,4 @@ Route::get('thesis/files/program/list/{college}/{program}', 'PublicAccessControl
 
 // JSON
 Route::get('/check-thesis-record', 'FilesController@checkThesisRecord');
+Route::post('/update-description', 'FilesController@updateDescription');

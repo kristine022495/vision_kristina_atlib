@@ -166,6 +166,10 @@
 
           <h6 class="card-subtitle mb-2 text-muted">Uploader</h6>
           <p class="card-text">{{'@'.Auth::user()->username }}</p><br>
+
+          <h6 class="card-subtitle mb-2 text-muted">Call ID<br><small>(leave as 'auto' or manually input)<small></h6>
+          <input id="call_id" type="text" class="form-control" name="call_id" value="auto" required><br><br>
+
           <input type="text" class="form-control" name="uploader" value="{{Auth::user()->username}}" hidden>
           <h6 class="card-subtitle mb-2 text-muted">Files Selected</h6>
           <div class="chips">
@@ -189,11 +193,10 @@
           <input id="program" type="text" class="form-control" name="program" required><br><br>
 
           <h6 class="card-subtitle mb-2 text-muted">Author/s</h6>
-          <small>1 author per line</small>
-          <textarea name="authors" id="authors" cols="35" rows="5"></textarea>
+          <textarea name="authors" id="authors" cols="35" rows="5"></textarea><br><br>
 
           <h6 class="card-subtitle mb-2 text-muted">Description</h6>
-          <textarea name="description" id="description" cols="35" rows="5"></textarea>
+          <textarea name="description" id="description" cols="35" rows="5"></textarea><br><br>
           
           <button id="upload" class="card-link btn btn-primary active" style="margin-left: 8px;">Begin Upload</button>
           <!-- Compressed Variables -->
@@ -341,6 +344,7 @@
       // 'department':     $('input[name=department]').val(),
       // 'associated_id':  $('input[name=associated_id]').val(),
       // 'folder':         $('select[name=folder]').val(),
+      'call_id':          $('input[name=call_id]').val(),
       'title':          $('input[name=title]').val(),
       'name':          $('input[name=title]').val(),
       'uploader':       $('input[name=uploader]').val(),
