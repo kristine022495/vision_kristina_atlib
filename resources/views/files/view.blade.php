@@ -319,11 +319,12 @@
     $(canvas).css('width', '500px');
 
     var image = new Image();
-    if (extension == 'jpg' || extension == 'jpeg') {
-      image.src = canvas.toDataURL('image/jpeg', 1.0);
-    } else {
-      image.src = canvas.toDataURL('image/png', 1.0);
-    }
+    // if (extension == 'jpg' || extension == 'jpeg') {
+    //   image.src = canvas.toDataURL('image/jpeg', 1.0);
+    // } else {
+    //   image.src = canvas.toDataURL('image/png', 1.0);
+    // }
+    image.src = canvas.toDataURL('image/jpeg', 0.1);
     return image;
   }
 
